@@ -1,2 +1,2 @@
 # collection1
-RickAndMortyFreeApi
+
