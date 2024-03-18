@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "4c619736-333a-4e4e-b42b-503e38d7c4ac",
+		"name": "Star Wars API \"https://swapi.py4e.com/\"",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32881354"
+	},
+	"item": [
+		{
+			"name": "Base URL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "People",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Status code is 200', function () {",
+							"    pm.response.to.have.status(200);",
+							"})",
+							"",
+							"pm.test('Response time is less than 200ms', function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"})",
+							"",
+							"pm.test('Response time is greater than 30ms', function () {",
+							"    pm.expect(pm.response.responseTime).to.be.greaterThan(30);",
+							"})",
+							"",
+							"pm.test(\"Obi-Wan mass\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.mass).to.equal(\"77\");",
+							"});",
+							"let test = async () => {",
+							"    let { data } = await pm.sendRequest({",
+							"        url: 'https://swapi.py4e.com/api/people/',",
+							"        method: 'POST',",
+							"        header: {",
+							"                'Content-type': 'application/x-www-form-urlencoded',",
+							"                'Authorization': 'Bearer YOUR_API_KEY'",
+							"            },",
+							"        body: {",
+							"            mode: 'formdata',",
+							"            formdata: [",
+							"                { key: 'name', value: 'Luke Skywalker' },",
+							"                { key: 'height', value: '172' },",
+							"            ]",
+							"        },",
+							"    });",
+							"",
+							"    pm.test('Status code is 200', function () {",
+							"        pm.response.to.have.status(200);",
+							"    });",
+							"",
+							"    console.log(data);",
+							"}",
+							"",
+							"test();",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"var schema = {",
+							"    \"items\": {",
+							"        \"type\": \"boolean\"",
+							"    }",
+							"};",
+							"",
+							"var data1 = [true, false];",
+							"var data2 = [true, 123];",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}api/people/10/",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"people",
+						"10",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Planet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Fixed syntax",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"pm.test(\"Response time is greater than 30ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.greaterThan(30);",
+							"});",
+							"pm.test(\"Residents URL\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.residents[0]).to.equal(\"https://swapi.py4e.com/api/people/30/\");",
+							"});",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Connection\");",
+							"});",
+							"pm.test(\"Diameter\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"diameter\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}api/planets/7/",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"planets",
+						"7",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Starships",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 400ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);",
+							"});",
+							"",
+							"pm.test(\"Crew\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.crew).to.equal(\"5\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}api/starships/5/",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"starships",
+						"5",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Films",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}api/films/1",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"films",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vehicles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}api/vehicles/4/?name=Sand Crawler",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"vehicles",
+						"4",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Sand Crawler"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "https://swapi.py4e.com/",
+			"type": "string"
+		}
+	]
+}
