@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "160be813-30e6-402a-800a-db083a6a44de",
+		"name": "Dadata \"https://dadata.ru/api/suggest/name/\"",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32881354"
+	},
+	"item": [
+		{
+			"name": "API: подсказки по ФИО",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Token 73c888148931e1cb8cf7c38f9a2d9d2318709789",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"query\": \"Вик\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+					"protocol": "https",
+					"host": [
+						"suggestions",
+						"dadata",
+						"ru"
+					],
+					"path": [
+						"suggestions",
+						"api",
+						"4_1",
+						"rs",
+						"suggest",
+						"fio"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

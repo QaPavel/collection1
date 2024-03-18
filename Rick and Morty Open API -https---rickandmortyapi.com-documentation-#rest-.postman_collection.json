@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "df19273c-aad8-4d32-8fe8-0be24e165bfb",
+		"name": "Rick and Morty Open API \"https://rickandmortyapi.com/documentation/#rest\"",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32881354"
+	},
+	"item": [
+		{
+			"name": "Base URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"characters\");",
+							"});",
+							"pm.test(\"Response time is less than 300ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);",
+							"});",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.characters).to.eql(\"https://rickandmortyapi.com/api/character\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all characters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://rickandmortyapi.com/api/character/",
+					"protocol": "https",
+					"host": [
+						"rickandmortyapi",
+						"com"
+					],
+					"path": [
+						"api",
+						"character",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a single character",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/character/2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"character",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get multiple characters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/character/1,183",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"character",
+						"1,183"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter characters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/character/?name=RIck&gender=Male&status=Alive",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"character",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "RIck"
+						},
+						{
+							"key": "gender",
+							"value": "Male"
+						},
+						{
+							"key": "status",
+							"value": "Alive"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all locations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/location/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"location",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a single location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/location/3",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"location",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get multiple locations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/location/3,21",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"location",
+						"3,21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter locations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/location/?type=Planet&name=Purge",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"location",
+						""
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "Planet"
+						},
+						{
+							"key": "name",
+							"value": "Purge"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all episodes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/episode",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"episode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a single episode",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/episode/28",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"episode",
+						"28"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get multiple episodes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/episode/10,28",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"episode",
+						"10,28"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "https://rickandmortyapi.com",
+			"type": "string"
+		}
+	]
+}
